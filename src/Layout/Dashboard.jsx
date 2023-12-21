@@ -49,7 +49,7 @@ import useAuth from "../Hooks/useAuth";
               </NavLink>
             </li>
             <li>
-              <NavLink to="/dashboard/manage-registered-camps">
+              <NavLink to="/dashboard/calender">
                 <FaCalendar></FaCalendar>
                Calender
               </NavLink>

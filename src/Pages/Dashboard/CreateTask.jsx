@@ -1,16 +1,112 @@
 
 
+import { useForm } from "react-hook-form";
+// import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 const CreateTask = () => {
-    return (
-        <div>
-            <h2 className="text-2xl font-medium">Create Your New Task Here</h2>
-            <div className="px-5 md:px-0 bg-base-200">
-          <div className="card mt-10 md:w-5/12  mx-auto shadow-2xl bg-base-100">
-            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-             <div className="flex flex-col  gap-5">
-             <div className="form-control flex-1">
+
+    // const axiosPublic = useAxiosPublic()
+
+    const {
+       register,
+      handleSubmit,
+      reset,
+      formState: { errors },
+    } = useForm();
+  
+    const onSubmit = async (data) =>{
+      console.log(data);
+  
+  
+        //   const campItem = {
+        //       title: data.title,
+        //       description: data.description,
+        //       deadline: data.deadline,
+        //       list: data.list
+        //       priority: data.priority,
+          
+        //   }
+          
+        //   const campRes = await axiosPublic.post('/camps', campItem);
+        //   console.log(campRes.data)
+        //   if(campRes.data.insertedId){
+              // show success popup
+              Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Task Create Done",
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+                reset()
+        //   }
+    //   }
+    //   console.log(res.data);
+    };
+
+
+
+
+  return (
+    <div>
+      <h2 className="text-2xl font-medium">Create Your New Task Here</h2>
+      <div className="px-5 md:px-0">
+        <div className="card mt-10  mx-auto shadow-2xl bg-white">
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+            <div className="flex flex-col  gap-5">
+
+                <div className="flex gap-10 items-center">
+                    
+              <div className="form-control w-28 flex-1">
                 <label className="label">
-                  <span className="label-text">Title</span>
+                  <span className="label-text text-lg font-medium">
+                  deadline
+                  </span>
+                </label>
+                <input
+                  type="date"
+                  {...register("deadline", { required: true })}
+                  className="input input-bordered"
+                />
+                {errors.deadline && (
+                  <span className="text-red-600">This field is required</span>
+                )}
+              </div>
+
+              <div className="form-control w-28 flex-1">
+              <label className="label">
+                  <span className="label-text text-lg font-medium">
+                  List
+                  </span>
+                </label>
+                <select
+                  className="input input-bordered"
+                  
+                  {...register("list")}
+                >
+                  <option value="to-do">to-do</option>
+                  <option value="ongoing">ongoing</option>
+                  <option value="completed">completed</option>
+                </select>
+              </div>
+              <div className="form-control w-28 flex-1">
+                <label className="label">
+                  <span className="label-text text-lg font-medium">Priority</span>
+                </label>
+                <select
+                  className="input input-bordered"
+                  {...register("priority")}
+                >
+                  <option value="Low">Low</option>
+                  <option value="Moderate">Moderate</option>
+                  <option value="High">High</option>
+                </select>
+              </div>
+                </div>
+
+              <div className="form-control flex-1">
+                <label className="label">
+                  <span className="label-text text-lg font-medium">Title</span>
                 </label>
                 <input
                   type="text"
@@ -21,61 +117,36 @@ const CreateTask = () => {
                 {errors.title && (
                   <span className="text-red-600">Title is required</span>
                 )}
-            
-
-            <div className="form-control flex-1">
-      <label className="label">
-           <span className="label-text text-lg font-medium">
-           Description
-           </span>
-            </label>
-        <textarea
-          {...register("description", { required: true })}
-          className="input input-bordered"
-        />
-        {errors.description && <span className="text-red-600">This field is required</span>}
-      </div>
-
-      <div className="form-control flex-1">
-      <label className="label">
-           <span className="label-text text-lg font-medium">
-           Scheduled Date
-           </span>
-            </label>
-        <input
-          type="date"
-          {...register("scheduledDate", { required: true })}
-          className="input input-bordered"
-        />
-        {errors.scheduledDate && <span className="text-red-600">This field is required</span>}
-      </div>
-
-
+              </div>
               <div className="form-control flex-1">
                 <label className="label">
-                  <span className="label-text ">Priority</span>
+                  <span className="label-text text-lg font-medium">
+                    Description
+                  </span>
                 </label>
-                <select
+                <textarea
+                  {...register("description", { required: true })}
                   className="input input-bordered"
-                  {...register("priority")}
-                >
-                  <option value="organizer">Low</option>
-                  <option value="healthcareProfessional">Moderate</option>
-                  <option value="participant">High</option>
-                </select>
+                />
+                {errors.description && (
+                  <span className="text-red-600">This field is required</span>
+                )}
               </div>
-              <div className="form-control mt-6">
+
+
+              <div className="form-control w-28 mt-6">
                 <input
-                  className="btn bg-lime-500 text-white"
+                  className="btn bg-sky-400 text-white"
                   type="submit"
-                  value="SignUp"
+                  value="Create Task"
                 />
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default CreateTask;

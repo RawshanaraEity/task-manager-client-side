@@ -15,6 +15,8 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import AuthProvider from './Providers/AuthProvider';
 import CreateTask from './Pages/Dashboard/CreateTask';
+import Calender from './Pages/Dashboard/Calender';
+
 
 const router = createBrowserRouter([
   {
@@ -49,6 +51,10 @@ const router = createBrowserRouter([
           {
             path: '/dashboard/create-task',
             element: <CreateTask></CreateTask>
+          },
+          {
+            path: '/dashboard/calender',
+            element: <Calender></Calender>
           }
         ]
       }
