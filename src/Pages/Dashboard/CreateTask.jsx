@@ -1,11 +1,11 @@
 
 
 import { useForm } from "react-hook-form";
-// import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 const CreateTask = () => {
 
-    // const axiosPublic = useAxiosPublic()
+    const axiosPublic = useAxiosPublic()
 
     const {
        register,
@@ -18,19 +18,18 @@ const CreateTask = () => {
       console.log(data);
   
   
-        //   const campItem = {
-        //       title: data.title,
-        //       description: data.description,
-        //       deadline: data.deadline,
-        //       status: data.status
-        //       priority: data.priority,
+          const taskItem = {
+              title: data.title,
+              description: data.description,
+              deadline: data.deadline,
+              status: data.status,
+              priority: data.priority
+          }
           
-        //   }
-          
-        //   const campRes = await axiosPublic.post('/camps', campItem);
-        //   console.log(campRes.data)
-        //   if(campRes.data.insertedId){
-              // show success popup
+          const taskRes = await axiosPublic.post('/tasks', taskItem);
+          console.log(taskRes.data)
+          if(taskRes.data.insertedId){
+            
               Swal.fire({
                   position: "top-end",
                   icon: "success",
@@ -39,10 +38,9 @@ const CreateTask = () => {
                   timer: 1500
                 });
                 reset()
-        //   }
-    //   }
-    //   console.log(res.data);
-    };
+          }
+      }
+     
 
 
 
