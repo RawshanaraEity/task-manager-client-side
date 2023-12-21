@@ -14,6 +14,7 @@ import Dashboard from './Layout/Dashboard';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import AuthProvider from './Providers/AuthProvider';
+import CreateTask from './Pages/Dashboard/CreateTask';
 
 const router = createBrowserRouter([
   {
@@ -42,8 +43,14 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path: '/dashBoard',
-        element: <Dashboard></Dashboard>
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
+          {
+            path: '/dashboard/create-task',
+            element: <CreateTask></CreateTask>
+          }
+        ]
       }
     ]
   },
