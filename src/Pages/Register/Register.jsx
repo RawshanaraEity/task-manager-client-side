@@ -60,7 +60,7 @@ const Register = () => {
 //   };
 
   return (
-    <div>
+    <div className="py-20">
     
       <div className="px-5 md:px-0 bg-base-200">
         <h1 className="text-5xl pt-10  text-center font-bold">SignUP!</h1>
