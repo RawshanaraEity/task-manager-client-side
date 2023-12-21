@@ -1,14 +1,14 @@
 
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-// import Swal from "sweetalert2";
-// import SocialLogin from "../SharedPage/socialLogin/SocialLogin";
-// import useAuth from "../../Hooks/useAuth";
-// import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
+import SocialLogin from "../../Components/SocialLogin";
+
+
 
 
 const Register = () => {
-//   const axiosPublic = useAxiosPublic()
 
   const {
     register,
@@ -18,54 +18,41 @@ const Register = () => {
   } = useForm();
 
 
-//   const { createUser, updateUserProfile } = useAuth();
-//   const navigate = useNavigate();
+  const { createUser, updateUserProfile } = useAuth();
+  const navigate = useNavigate();
 
-//   const onSubmit = (data) => {
-//     console.log(data);
-//     createUser(data.email, data.password)
-//     .then((result) => {
-//       const loggedUser = result.user;
-//       console.log(loggedUser);
+  const onSubmit = (data) => {
+    console.log(data);
+    createUser(data.email, data.password)
+    .then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
 
-    //   updateUserProfile(data?.name, data?.photoUrl)
-    //   .then((res) => {
-    //     console.log("user profile info updated", res);
-
-    //     // create user entry in the database
-    //       const userInfo = {
-    //         name: data.name,
-    //         photoUrl: data.photoUrl,
-    //         email: data.email,
-    //         role: data.role
-    //       };
-
-    //       axiosPublic.post("/users", userInfo).then((res) => {
-    //     if (res.data.insertedId) {
-    //       // console.log("user added to the database");
-    //       reset();
-    //       Swal.fire({
-    //         position: "top-end",
-    //         icon: "success",
-    //         title: "User created successfully",
-    //         showConfirmButton: false,
-    //         timer: 1500,
-    //       });
-    //       navigate("/");
-    //     }
-    //   });
-    //   })
-    //   .catch((error) => console.log(error));
-    // });
-//   };
+      updateUserProfile(data?.name, data?.photoUrl)
+      .then((res) => {
+        console.log("user profile info updated", res)
+          reset();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "User created successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
+    
+      })
+      .catch((error) => console.log(error));
+    });
+  };
 
   return (
-    <div className="py-20">
+    <div>
     
       <div className="px-5 md:px-0 bg-base-200">
         <h1 className="text-5xl pt-10  text-center font-bold">SignUP!</h1>
           <div className="card mt-10 md:w-5/12  mx-auto shadow-2xl bg-base-100">
-            <form onSubmit={handleSubmit()} className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
              <div className="flex flex-col  gap-5">
              <div className="form-control flex-1">
                 <label className="label">
@@ -113,19 +100,6 @@ const Register = () => {
                 )}
               </div>
 
-              <div className="form-control flex-1">
-                <label className="label">
-                  <span className="label-text ">Role</span>
-                </label>
-                <select
-                  className="input input-bordered"
-                  {...register("role")}
-                >
-                  <option value="organizer">Organizer</option>
-                  <option value="healthcareProfessional">Healthcare Professional</option>
-                  <option value="participant">Participant</option>
-                </select>
-              </div>
 
               <div className="form-control">
                 <label className="label">
@@ -169,18 +143,18 @@ const Register = () => {
               </div>
               <div className="form-control mt-6">
                 <input
-                  className="btn bg-lime-500 text-white"
+                  className="btn bg-sky-400 text-white"
                   type="submit"
                   value="SignUp"
                 />
               </div>
             </form>
-            <p className="px-6">
-              <small className="text-lg">
-                Already have an account?<Link to="/login"><span className="text-lime-500 font-bold"> Login</span></Link>{" "}
+            <p className="px-6 mb-10">
+              <small className="text-lg ">
+                Already have an account?<Link to="/login"><span className="text-sky-400 font-bold"> Login</span></Link>{" "}
               </small>
             </p>
-            {/* <SocialLogin></SocialLogin> */}
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

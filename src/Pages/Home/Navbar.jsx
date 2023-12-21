@@ -1,11 +1,10 @@
 
 import { Link, NavLink } from "react-router-dom";
-// import { useContext } from "react";
-// import { AuthContext } from "../../Provider/AuthProvider";
 import logo from '../../assets/task-logo-3.jpg'
+import useAuth from "../../Hooks/useAuth";
 
 const NavBar = () => {
-//   const { logOut, user } = useContext(AuthContext);
+  const { logOut, user } = useAuth()
 
   const navLinks = (
     <>
@@ -58,9 +57,9 @@ const NavBar = () => {
   );
 
   return (
-    <div>
-      <div className="navbar fixed z-10 bg-white shadow-lg">
-        <div className="navbar-start text-white">
+    <div className="sticky top-0 z-20">
+      <div className="navbar bg-white shadow-lg">
+        <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -81,7 +80,7 @@ const NavBar = () => {
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow 
-               rounded-box w-36 bg-slate-800"
+               rounded-box w-36 bg-sky-100"
             >
               {navLinks}
             </ul>
@@ -96,25 +95,24 @@ const NavBar = () => {
 
 
         <div className="navbar-end">
-          {/* {user?.email ? ( */}
+          {user?.email ? (
             <div>
             <div className="hidden md:block">
             <div className=" flex gap-2">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
-                    img
-                    {/* <img src={user.photoURL? user.photoURL : `https://i.ibb.co/8X8stTp/user.webp`} alt={user.displayName} /> */}
+                    <img src={user.photoURL? user.photoURL : `https://i.ibb.co/8X8stTp/user.webp`} alt={user.displayName} />
                   </div>
                 </label>
                 <ul className="flex items-center gap-2">
                   <li>
-                    displayName
-                    {/* <p className="text-xl text-white font-semibold">{user.displayName}</p> */}
+                    
+                    <p className="text-xl font-semibold">{user.displayName}</p>
                   </li>
                   <li>
                     <button
                       className="btn text-sky-400 text-lg"
-                    //   onClick={logOut}
+                      onClick={logOut}
                     >
                       LogOut
                     </button>
@@ -127,22 +125,20 @@ const NavBar = () => {
               <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
-                    img
-                    {/* <img src={user.photoURL? user.photoURL : `https://i.ibb.co/8X8stTp/user.webp`} alt={user.displayName} /> */}
+                    <img src={user.photoURL? user.photoURL : `https://i.ibb.co/8X8stTp/user.webp`} alt={user.displayName} />
                   </div>
                 </label>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content mt-3 z-[1] shadow bg-slate-800 rounded-box"
+                  className="menu menu-sm dropdown-content mt-3 z-[1] shadow rounded-box"
                 >
                   <li>
-                    displayname
-                  {/* <p className="text-sm text-white font-semibold">{user.displayName}</p> */}
+                  <p className="text-sm  font-semibold">{user.displayName}</p>
                   </li>
                   <li>
                   <button
                       className="btn  text-sky-400  w-2/3 mx-auto pt-3"
-                    //   onClick={logOut}
+                      onClick={logOut}
                     >
                       LogOut
                     </button>
@@ -152,11 +148,11 @@ const NavBar = () => {
               </div>
 
             </div>
-          {/* ) : ( */}
+           ) : ( 
             <Link to="/login">
               <button className="btn text-sky-400 text-lg">Login</button>
             </Link>
-          {/* )} */}
+           )} 
         </div>
       </div>
     </div>

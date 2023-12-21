@@ -1,15 +1,16 @@
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import Swal from "sweetalert2";
-// import SocialLogin from "../SharedPage/socialLogin/SocialLogin";
-// import useAuth from "../../Hooks/useAuth";
+import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
+import SocialLogin from "../../Components/SocialLogin";
+
 
 const Login = () => {
-//   const { signIn } = useAuth();
-//   const navigate = useNavigate();
-//   const location = useLocation();
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-//   const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -17,34 +18,34 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    // signIn(email, password).then((result) => {
-    //   const user = result.user;
-    //   console.log(user);
-    //   Swal.fire({
-    //     title: "User Logged in successfull",
-    //     showClass: {
-    //       popup: `
-    //                 animate__animated
-    //                 animate__fadeInUp
-    //                 animate__faster
-    //               `,
-    //     },
-    //     hideClass: {
-    //       popup: `
-    //                 animate__animated
-    //                 animate__fadeOutDown
-    //                 animate__faster
-    //               `,
-    //     },
-    //   });
-    //   navigate(from, { replace: true });
-    // });
+    signIn(email, password).then((result) => {
+      const user = result.user;
+      console.log(user);
+      Swal.fire({
+        title: "User Logged in successfully",
+        showClass: {
+          popup: `
+                    animate__animated
+                    animate__fadeInUp
+                    animate__faster
+                  `,
+        },
+        hideClass: {
+          popup: `
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                  `,
+        },
+      });
+      navigate(from, { replace: true });
+    });
   };
 
   return (
     <div>
      
-      <div className=" bg-base-200 py-20">
+      <div className=" bg-base-200">
         <div className="py-20">
           <div className="card  w-96 mx-auto  shadow-2xl bg-base-100">
             <h1 className="text-5xl text-center font-bold pt-5">Login now!</h1>
@@ -80,7 +81,7 @@ const Login = () => {
               </div>
               <div className="form-control mt-6">
                 <input
-                  className="btn bg-lime-500 text-white"
+                  className="btn bg-sky-400 text-white"
                   type="submit"
                   value="Login"
                 />
@@ -89,12 +90,12 @@ const Login = () => {
             <p className="px-6 text-xl">
               <small>
                 New Here?
-                <Link to="/register" className="text-lime-500 font-bold">
+                <Link to="/register" className="text-sky-400 font-bold">
                   Create an account
                 </Link>
               </small>
             </p>
-            {/* <SocialLogin></SocialLogin> */}
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
