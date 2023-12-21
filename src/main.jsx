@@ -16,6 +16,8 @@ import Register from './Pages/Register/Register';
 import AuthProvider from './Providers/AuthProvider';
 import CreateTask from './Pages/Dashboard/CreateTask';
 import Calender from './Pages/Dashboard/Calender';
+import PrevioustTask from './Pages/Dashboard/PrevioustTask';
+import List from './Pages/Dashboard/List';
 
 
 const router = createBrowserRouter([
@@ -45,15 +47,23 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path: '/dashboard',
+        path: 'dashboard',
         element: <Dashboard></Dashboard>,
         children: [
           {
-            path: '/dashboard/create-task',
+            path: 'create-task',
             element: <CreateTask></CreateTask>
           },
           {
-            path: '/dashboard/calender',
+            path: 'list',
+            element: <List></List>
+          },
+          {
+            path: 'previous-task',
+            element: <PrevioustTask></PrevioustTask>
+          },
+          {
+            path: 'calender',
             element: <Calender></Calender>
           }
         ]

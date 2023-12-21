@@ -22,7 +22,7 @@ const CreateTask = () => {
         //       title: data.title,
         //       description: data.description,
         //       deadline: data.deadline,
-        //       list: data.list
+        //       status: data.status
         //       priority: data.priority,
           
         //   }
@@ -76,13 +76,13 @@ const CreateTask = () => {
               <div className="form-control w-28 flex-1">
               <label className="label">
                   <span className="label-text text-lg font-medium">
-                  List
+                  Status
                   </span>
                 </label>
                 <select
                   className="input input-bordered"
                   
-                  {...register("list")}
+                  {...register("status")}
                 >
                   <option value="to-do">to-do</option>
                   <option value="ongoing">ongoing</option>

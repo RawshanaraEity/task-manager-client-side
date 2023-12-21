@@ -1,6 +1,5 @@
 import {
     FaCalendar,
-    FaEdit,
     FaList,
     FaPlus,
     
@@ -43,7 +42,13 @@ import useAuth from "../Hooks/useAuth";
               </NavLink>
             </li>
             <li>
-              <NavLink to="/dashboard/manage-camps">
+              <NavLink to="/dashboard/list">
+                <FaList></FaList>
+                List
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/previous-task">
                 <FaList></FaList>
                 See Previous Task
               </NavLink>
