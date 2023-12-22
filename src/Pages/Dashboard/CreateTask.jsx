@@ -65,6 +65,7 @@ const CreateTask = () => {
                   type="date"
                   {...register("deadline", { required: true })}
                   className="input input-bordered"
+                  
                 />
                 {errors.deadline && (
                   <span className="text-red-600">This field is required</span>
@@ -79,7 +80,6 @@ const CreateTask = () => {
                 </label>
                 <select
                   className="input input-bordered"
-                  
                   {...register("status")}
                 >
                   <option value="to-do">to-do</option>

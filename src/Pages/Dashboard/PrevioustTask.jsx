@@ -1,12 +1,13 @@
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useTasks from "../../Hooks/useTasks";
-import { Link } from "react-router-dom";
 import { FaEdit, FaMinus } from "react-icons/fa";
+
 
 const PrevioustTask = () => {
   const axiosPublic = useAxiosPublic();
   const [tasks, loading, refetch] = useTasks();
+
 
   const handleDeleteItem = (item) => {
     Swal.fire({
@@ -50,7 +51,6 @@ const PrevioustTask = () => {
                 <th>Description</th>
                 <th>Deadline</th>
                 <th>Status</th>
-                <th>Edit</th>
                 <th>Remove</th>
               </tr>
             </thead>
@@ -61,13 +61,8 @@ const PrevioustTask = () => {
                   <td>{item?.title}</td>
                   <td>{item?.description}</td>
                   <td> {item?.deadline}</td>
-                  <td className="text-right">{item?.status}</td>
-                  <td>
-                    <Link to={`/dashboard/edit-task/${item?._id}`}>
-                      <button className="btn btn-sm rounded-none bg-sky-400  text-white">
-                        <FaEdit></FaEdit>
-                      </button>
-                    </Link>
+                  <td className="text-right">
+                    <button className="btn btn-sm">{item?.status}</button>
                   </td>
                   <td>
                     <button
