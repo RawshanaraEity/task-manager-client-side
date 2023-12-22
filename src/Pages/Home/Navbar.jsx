@@ -30,17 +30,7 @@ const NavBar = () => {
          About Us
         </NavLink>
       </li>
-      <li className=" text-lg font-medium mr-2">
-        {" "}
-        <NavLink
-          to="/contact"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "border-b-2 border-sky-400" : ""
-          }
-        >
-          Contact
-        </NavLink>
-      </li>
+    
      
       <li className="text-lg font-medium ">
         {" "}
