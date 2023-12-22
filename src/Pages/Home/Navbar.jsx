@@ -32,7 +32,9 @@ const NavBar = () => {
       </li>
     
      
-      <li className="text-lg font-medium ">
+      {
+        user && <>
+        <li className="text-lg font-medium ">
         {" "}
         <NavLink
           to="/dashboard"
@@ -43,6 +45,8 @@ const NavBar = () => {
           Dashboard
         </NavLink>
       </li>
+        </>
+      }
     </>
   );
 
