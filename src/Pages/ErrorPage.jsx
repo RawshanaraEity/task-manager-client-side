@@ -11,7 +11,7 @@ const Errorpage = () => {
         The page you were looking for could not be found.
       </p>
       <Link to="/">
-        <button className="btn bg-lime-500 text-white">Go Home</button>
+        <button className="btn bg-sky-500 text-white">Go Home</button>
       </Link>
     </div>
   );

@@ -21,6 +21,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import TaskList from './Pages/Dashboard/TaskList';
+import PrivateRoute from './Providers/privateRoute/PrivateRoute';
 
 
 
@@ -52,7 +53,9 @@ const router = createBrowserRouter([
       },
       {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute>
+          <Dashboard></Dashboard>
+        </PrivateRoute>,
         children: [
           {
             path: 'create-task',

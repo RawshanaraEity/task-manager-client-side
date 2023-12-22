@@ -48,12 +48,12 @@ const CreateTask = () => {
   return (
     <div>
       <h2 className="text-2xl font-medium">Create Your New Task Here</h2>
-      <div className="px-5 md:px-0">
+      <div className=" md:px-0">
         <div className="card mt-10  mx-auto shadow-2xl bg-white">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <div className="flex flex-col  gap-5">
 
-                <div className="flex gap-10 items-center">
+                <div className="flex flex-wrap gap-2 md:gap-10 items-center">
                     
               <div className="form-control w-28 flex-1">
                 <label className="label">
