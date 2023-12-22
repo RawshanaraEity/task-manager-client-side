@@ -1,7 +1,9 @@
 import {
     FaCalendar,
     FaList,
+    FaNetworkWired,
     FaPlus,
+    FaTasks,
     
   } from "react-icons/fa";
   import { NavLink, Outlet } from "react-router-dom";
@@ -44,12 +46,12 @@ import useAuth from "../Hooks/useAuth";
             <li>
               <NavLink to="/dashboard/list">
                 <FaList></FaList>
-                List
+                My Task List
               </NavLink>
             </li>
             <li>
               <NavLink to="/dashboard/previous-task">
-                <FaList></FaList>
+                <FaTasks></FaTasks>
                 See Previous Task
               </NavLink>
             </li>

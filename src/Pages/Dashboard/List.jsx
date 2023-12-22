@@ -1,18 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../Hooks/useAxiosPublic";
+
+import useTasks from "../../Hooks/useTasks";
 
 
 const List = () => {
-    const axiosPublic = useAxiosPublic()
+    const [tasks, loading, refetch] = useTasks()
 
 
-    const {data: tasks = [], isPending: loading, refetch } =useQuery({
-        queryKey: ['tasks'],
-        queryFn: async() =>{
-            const res = await axiosPublic.get('/tasks')
-            return res?.data;
-        }
-    })
+   
     console.log(tasks);
 
     return (
@@ -22,7 +16,10 @@ const List = () => {
                 <div>
                     {
                         tasks?.map(task => <>
-                        <div key={task._id}>{task?.title} </div>
+                        <div key={task._id}>
+                          <h2 className="bg-slate-200 p-3 my-2 rounded-lg">  {task?.title}  </h2>
+                           
+                            </div>
                         </>)
                     }
                 </div>
