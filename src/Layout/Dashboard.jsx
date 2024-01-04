@@ -1,13 +1,14 @@
 import {
     FaCalendar,
     FaList,
-    FaNetworkWired,
     FaPlus,
     FaTasks,
     
   } from "react-icons/fa";
   import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
+import Login from "../Pages/Login/Login";
+import Home from "../Pages/Home/Home";
   
   const Dashboard = () => {
     const {user} = useAuth()
@@ -16,8 +17,9 @@ import useAuth from "../Hooks/useAuth";
   
     return (
       <div>
-        
-      <div className="flex flex-col lg:flex-row ">
+        {
+          user ? <>
+              <div className="flex flex-col lg:flex-row ">
         <div className="w-full lg:w-64 border-2 border-sky-200  min-h-screen">
 
         <div className="h-2/5">
@@ -70,6 +72,11 @@ import useAuth from "../Hooks/useAuth";
           <Outlet></Outlet>
         </div>
       </div>
+          </>
+          : <Home></Home>
+        }
+        
+      
       </div>
     );
   };

@@ -21,6 +21,8 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import TaskList from './Pages/Dashboard/TaskList';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 
 
@@ -63,6 +65,7 @@ const router = createBrowserRouter([
           {
             path: 'list',
             element: <TaskList></TaskList>
+           
           },
           {
             path: 'previous-task',
@@ -81,14 +84,15 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-       
+       <DndProvider backend={HTML5Backend}>
       <AuthProvider>
         <QueryClientProvider client={queryClient}>
           <RouterProvider router={router} />
         </QueryClientProvider>
       </AuthProvider>
-    
+      </DndProvider>
   </React.StrictMode>,
 )
+
 
 
