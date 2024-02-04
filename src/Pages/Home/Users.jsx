@@ -15,7 +15,7 @@ const Users = () => {
 
   return (
     <div>
-        <h2 className=" text-5xl py-10 font-semibold">Our Happy Users</h2>
+        <h2 className=" text-5xl py-10 font-semibold text-sky-400 text-center">Our Happy Users</h2>
       <div className="carousel carousel-center flex-col md:flex-row items-center rounded-box">
         <div className="carousel-item">
           <div data-aos="flip-left" className="flex flex-col items-center py-10 ">
@@ -25,7 +25,7 @@ const Users = () => {
               alt=""
             />
            
-            <p className="text-center mt-2 font-medium">Developer</p>
+            <p className="text-center mt-2 font-medium text-gray-600">Developer</p>
           </div>
         </div>
         <div className="carousel-item">
@@ -36,7 +36,7 @@ const Users = () => {
               alt=""
             />
            
-            <p className="text-center mt-2 font-medium">Specialist</p>
+            <p className="text-center mt-2 font-medium text-gray-600">Specialist</p>
           </div>
         </div>
         <div className="carousel-item">
@@ -47,7 +47,7 @@ const Users = () => {
               alt=""
             />
            
-            <p className="text-center mt-2 font-medium">Banker</p>
+            <p className="text-center mt-2 font-medium text-gray-600">Banker</p>
           </div>
         </div>
         <div className="carousel-item">
@@ -58,7 +58,7 @@ const Users = () => {
               alt=""
             />
            
-            <p className="text-center mt-2 font-medium">Corporate Professional</p>
+            <p className="text-center mt-2 font-medium text-gray-600">Corporate Professional</p>
           </div>
         </div>
         <div className="carousel-item">
@@ -69,7 +69,7 @@ const Users = () => {
               alt=""
             />
            
-            <p className="text-center mt-2 font-medium">IT Professional</p>
+            <p className="text-center mt-2 font-medium text-gray-600">IT Professional</p>
           </div>
         </div>
         <div className="carousel-item">
@@ -80,7 +80,7 @@ const Users = () => {
               alt=""
             />
            
-            <p className="text-center mt-2 font-medium">Doctor</p>
+            <p className="text-center mt-2 font-medium text-gray-600">Doctor</p>
           </div>
         </div>
         <div className="carousel-item">
@@ -91,7 +91,7 @@ const Users = () => {
               alt=""
             />
            
-            <p className="text-center mt-2 font-medium">Traveler</p>
+            <p className="text-center mt-2 font-medium text-gray-600">Traveler</p>
           </div>
         </div>
       </div>

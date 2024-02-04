@@ -8,7 +8,7 @@ const NavBar = () => {
 
   const navLinks = (
     <>
-      <li className=" text-lg font-medium mr-2">
+      <li className=" text-lg font-medium mr-2 text-gray-600">
         {" "}
         <NavLink
           to="/"
@@ -19,7 +19,7 @@ const NavBar = () => {
           Home
         </NavLink>
       </li>
-      <li className=" text-lg font-medium mr-2">
+      <li className=" text-lg font-medium mr-2 text-gray-600">
         {" "}
         <NavLink
           to="/about"
@@ -34,7 +34,7 @@ const NavBar = () => {
      
       {
         user && <>
-        <li className="text-lg font-medium ">
+        <li className="text-lg font-medium text-gray-600">
         {" "}
         <NavLink
           to="/dashboard"
@@ -74,7 +74,7 @@ const NavBar = () => {
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow 
-               rounded-box w-36 bg-sky-100"
+               rounded-box w-36 bg-sky-100 "
             >
               {navLinks}
             </ul>
@@ -101,7 +101,7 @@ const NavBar = () => {
                 <ul className="flex items-center gap-2">
                   <li>
                     
-                    <p className="text-xl font-semibold">{user.displayName}</p>
+                    <p className="text-xl font-semibold text-gray-600">{user.displayName}</p>
                   </li>
                   <li>
                     <button
